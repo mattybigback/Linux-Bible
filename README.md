@@ -1,4 +1,4 @@
-# Linux Bible
+# Linux Primer
 Documentation for common Linux tasks that are useful for developers and system admins.
 
 ## Conventions
