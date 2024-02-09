@@ -40,7 +40,7 @@ Permissions are reported by the ls command as a 10 character string. In the abov
 |```-```| ```rw-```         | ```r--```         | ```---```          |
 
 ### File type
-The type character signifies the type of file that this is. Regular files are designated with a ```-```, directories are designated with a ```d```
+The type character signifies the type of file that this is. Regular files are designated with a ```-```, directories are designated with a ```d```.
 
 ### Owner permissions (u)
 These three characters indicate the permissions that the user that owns the file has.
@@ -50,3 +50,28 @@ These three characters indicate the permissions that the group that owns the fil
 
 ### Others permissions (o)
 These three characters indicate the permissions that users and groups who are not the file owner and not a member of the group that owns the file.
+
+## Changing ownership and permissions
+
+It is often neccesary to change the owner or permissions of a file or directory.
+
+Standard users cannot change the owner of a file, but they can change the group to any group that they are a member of. 
+
+### Change owner
+The ```chown``` command (**CH**ange **OWN**er) chages the user, and optionally the group, that owns a file.
+
+```# chown [<OPTIONS>] <username>[:<group>] /path/to/file```
+
+#### Change owner of single file
+```# chown devuser ~/Downloads/Picture.gif```
+
+Changes the owner of ```~/Downloads/Picture.gif``` to the user "devuser".
+
+#### Change owner and group of single file
+```# chown devuser:developers /mnt/share/Picture.gif```
+
+Changes the owner of ```/mnt/share/Picture.gif``` to the user "devuser" and the group "developers".
+
+### Change group
+The ```chgrp``` command (**CH**ange **OWN**er) chages the user, and optionally the group, that owns a file.
+
