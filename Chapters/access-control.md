@@ -23,7 +23,7 @@ The execute permission (denoted as ```x```), for files, allows a user to run the
 ```
 $ ls -la
 ```
-Example output
+#### Example output
 ```
 $ ls -la
 drwxr-x---  14 myuser myuser 4.0K Mar  8  2022 .
@@ -127,6 +127,8 @@ Sets ```/mnt/share/picture.gif``` to be readable and writeable by the owner and 
 ### Recursive Operations
 ```chown```, ```chgrp```, and ```chmod``` can all be used with ```-R``` to change the ownership properties of all files in a directory.
 
+Care must be taken when using recursion, as all files and directories inside the directory being modified will be affected. This is particularly problematic for ```chmod```, as if the execute permission is removed from a directory it is no longer accessible.
+
 #### Change owner and group of a directory and all files within
 ```# chown -R devuser:developers /mnt/share/pictures/```
 
@@ -137,3 +139,8 @@ Changes the owner of the directory```/mnt/share/pictures/``` and all files withi
 
 Changes the group of the directory```/mnt/share/documentation/``` and all files within it to the group "developers".
 
+#### Change the permissions of all files in a directory without modifying the directory permissions
+
+```$ find /mnt/share/documentation -type f -exec chmod 664 {} \;```
+
+This changes the permissions of all files inside ```/mnt/share/documentation/``` to be readable and writeable by the owner and group, but read only for everyone else. It achieves this by using the ```find``` command with the ```type``` specified as ```-f``` for files. The ```-exec``` option specifies that for each result that is found a command should be run. ```find``` replaces the ```{}``` placeholder with the path to each result. ```\;``` denotes the end of the command to be run.
