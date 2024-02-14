@@ -8,4 +8,7 @@ $	Linux shell (BASH etc), standard user
 #	Linux shell (BASH etc), priviliged user (sudo or root)
 PS	Windows Powershell
 \>	Windows Command Prompt
+
+<foo>       Required Parameter
+[<BAR>]     Optional Parameter
 ```
