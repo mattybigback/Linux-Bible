@@ -73,5 +73,5 @@ Changes the owner of ```~/Downloads/Picture.gif``` to the user "devuser".
 Changes the owner of ```/mnt/share/Picture.gif``` to the user "devuser" and the group "developers".
 
 ### Change group
-The ```chgrp``` command (**CH**ange **OWN**er) chages the user, and optionally the group, that owns a file.
+The ```chgrp``` command (**CH**ange **GR**ou**P**) chages the group that owns a file.
 
