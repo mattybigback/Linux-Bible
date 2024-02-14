@@ -55,7 +55,7 @@ These three characters indicate the permissions that users and groups who are no
 
 It is often neccesary to change the owner or permissions of a file or directory.
 
-Standard users cannot change the owner of a file, but they can change the group to any group that they are a member of. 
+Standard users cannot change the owner of a file, but they can change the group of any file that they own to any group that they are a member of. 
 
 ### Change owner
 The ```chown``` command (**CH**ange **OWN**er) chages the user, and optionally the group, that owns a file.
@@ -73,5 +73,67 @@ Changes the owner of ```~/Downloads/Picture.gif``` to the user "devuser".
 Changes the owner of ```/mnt/share/Picture.gif``` to the user "devuser" and the group "developers".
 
 ### Change group
-The ```chgrp``` command (**CH**ange **GR**ou**P**) chages the group that owns a file.
+The ```chgrp``` command (**CH**ange **GR**ou**P**) changes the group that owns a file.
+
+```# chgrp [<OPTIONS>] <group> /path/to/file```
+
+#### Change the group of single file
+```$ chgrp developers /mnt/share/accounts.csv```
+
+Changes the group of ```/mnt/share/accounts.csv``` to the group "developers".
+
+### Change Mode
+The ```chmod``` command (**CH**ange **MOD**e) changes access permissions of files and directories. It allows users to specify who can read, write, or execute a file. Users may change the mode of any file that they own.
+
+The syntax of ```chmod``` is as follows:
+```chmod [<options>] <mode> /path/to/file```
+
+The mode component can be specified in two ways - symbolic mode or octal mode.
+
+#### Symbolic permissions
+Symbolic notation in uses letters to represent permissions and who they apply to. Permissions can be set, added and removed for each permission category using the letters defined above (```u```, ```g```, and ```o```), as well as for all with ```a```.
+
+Actions are specified with ```+``` to add, ```-``` to remove, or ```=``` to set permissions explicitly.
+
+#### Octal permissions
+Octal notation uses a three digit number to specify the permissions for a file or directory. The first digit specifies owner permissions (u), the second specifies group permissions (g), and the third specifies the others permission (o).
+
+Each digit is can be set from 0 to 7, and their meaning is calculated by adding the values of read (4), write (2), and execute (1) permissions.
+
+#### Examples
+
+```$ chmod u=rwx,g=rx,o= /mnt/share/my_script.py```
+
+Sets ```/mnt/share/my_script.py``` to be readable, writeable and executable by the owner, readable and executable by the group and not accessible by other users.
+
+```$ chmod u+wx,g+x,o-x /mnt/share/your_script.py```
+
+Modifies ```/mnt/share/your_script.py``` to add write and execute permissions for the owner, execute permissions for the group and remove execute from others.
+
+```$ chmod a=rwx /mnt/share/data.csv```
+
+Sets ```/mnt/share/data.csv``` to be readable, writeable, and executable by all users.
+
+
+```$ chmod 740 /mnt/share/init_script.sh```
+
+Sets ```/mnt/share/init_script.sh``` to be readable, writeable and executable by the owner, readable by the group and not accessible by other users.
+
+```$ chmod 664 /mnt/share/picture.gif```
+
+Sets ```/mnt/share/picture.gif``` to be readable and writeable by the owner and group and readable by other users.
+
+
+### Recursive Operations
+```chown```, ```chgrp```, and ```chmod``` can all be used with ```-R``` to change the ownership properties of all files in a directory.
+
+#### Change owner and group of a directory and all files within
+```# chown -R devuser:developers /mnt/share/pictures/```
+
+Changes the owner of the directory```/mnt/share/pictures/``` and all files within it to the user "devuser" and the group "developers".
+
+#### Change group of a directory and all files within
+```$ chgrp -R developers /mnt/share/documentation/```
+
+Changes the group of the directory```/mnt/share/documentation/``` and all files within it to the group "developers".
 
