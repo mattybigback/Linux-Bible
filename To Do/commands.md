@@ -5,12 +5,7 @@
 * ls
 * cd
 * pwd
-* touch
-* mkdir
-* cat
-* less
 * rm
-* mv
 * gzip
 
 ## Searching
