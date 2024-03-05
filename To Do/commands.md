@@ -17,3 +17,10 @@
 
 * find
 * grep
+
+## Piping and redirection
+
+* |
+* \>
+* \>>
+* <

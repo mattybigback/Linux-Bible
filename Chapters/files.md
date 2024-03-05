@@ -4,9 +4,19 @@
 
 ### Create a new empty file
 
-Touch
+It is sometimes neccesary to create an empty file. This can be done using the ```touch``` command.
 
-### See the contents of a file
+```$ touch /path/to/file```
+
+Using ```touch``` on a file that already exists will not modify the file, but it will update the accessed and modified timestamps.
+
+To create a text file that you intend to modify straight away, such as a new config file, you can type the command for your favourite editor followed by the path to the file. This will open the editor in a state where saving or writing out the file will save to the path you specify.
+
+``` $ vim /path/to/file```
+
+``` $ nano /path/to/file```
+
+### View the contents of a file
 
 There are many ways to view the contents of text files from the command line. Two of the most commonly used commands are ```cat``` and ```less```
 
