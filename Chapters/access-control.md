@@ -5,25 +5,28 @@ Files and directories have permissions metadata that controls which users and gr
 
 ## File and directory permissions
 
+### Permission Types
+
 Linux has three file permissions; read write and execute.
 
-### Read (r)
+#### Read (r)
 
 The read permission (denoted as ```r```) allows a user to view and read the contents of a file. It also allows limited access to list the contents of a directory.
 
-### Write (w)
+#### Write (w)
 
 The write permission (denoted as ```w```) grants the ability to modify the contents of a file or add, remove, and rename files within a directory.
 
-### Execute (x)
+#### Execute (x)
 
-The execute permission (denoted as ```x```), for files, allows a user to run the file as a program or script. It also allows a user to access a directory.
+The execute permission (denoted as ```x```), for files, allows a user to run the file as a program or script. It also allows a user to access a directory and its contents.
 
-### View permissions of all files in current directory
-```
-$ ls -la
-```
-#### Example output
+### File ownership
+
+Files and directories are owned by a user and a group. Different permissions apply depending on the user that is accessing the file.
+
+Below is a directory listing, produced using the command `$ ls -la`. It shows all of the files in a directory, as well as their permissions and owners.
+
 ```
 $ ls -la
 drwxr-x---  14 myuser myuser 4.0K Mar  8  2022 .
@@ -39,16 +42,16 @@ Permissions are reported by the ls command as a 10 character string. In the abov
 |-------|-------------------|-------------------|--------------------|
 |```-```| ```rw-```         | ```r--```         | ```---```          |
 
-### File type
+#### File type
 The type character signifies the type of file that this is. Regular files are designated with a ```-```, directories are designated with a ```d```.
 
-### Owner permissions (u)
+#### Owner permissions (u)
 These three characters indicate the permissions that the user that owns the file has.
 
-### Group permissions (g)
+#### Group permissions (g)
 These three characters indicate the permissions that the group that owns the file has. These permissions apply to all users that are members of the group that owns the file.
 
-### Others permissions (o)
+#### Others permissions (o)
 These three characters indicate the permissions that users and groups who are not the file owner and not a member of the group that owns the file.
 
 ## Changing ownership and permissions
@@ -57,7 +60,7 @@ It is often neccesary to change the owner or permissions of a file or directory.
 
 Standard users cannot change the owner of a file, but they can change the group of any file that they own to any group that they are a member of. 
 
-### Change owner
+### Change Owner
 The ```chown``` command (**CH**ange **OWN**er) chages the user, and optionally the group, that owns a file.
 
 ```# chown [<OPTIONS>] <username>[:<group>] /path/to/file```
@@ -132,12 +135,12 @@ Care must be taken when using recursion, as all files and directories inside the
 #### Change owner and group of a directory and all files within
 ```# chown -R devuser:developers /mnt/share/pictures/```
 
-Changes the owner of the directory```/mnt/share/pictures/``` and all files within it to the user "devuser" and the group "developers".
+Changes the owner of the directory```/mnt/share/pictures/``` and all files within it to the user "devuser" and the group "developers". Notice that this action requires root/sudo
 
 #### Change group of a directory and all files within
 ```$ chgrp -R developers /mnt/share/documentation/```
 
-Changes the group of the directory```/mnt/share/documentation/``` and all files within it to the group "developers".
+Changes the group of the directory```/mnt/share/documentation/``` and all files within it to the group "developers". Note that if you do not own this file or you are not in this file's ownership group then this action will require root/sudo.
 
 #### Change the permissions of all files in a directory without modifying the directory permissions
 
