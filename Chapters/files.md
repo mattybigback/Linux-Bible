@@ -63,17 +63,17 @@ There is no dedicated command for renaming files in Linux. Instead the file is m
 
 `$ mv -n image001.png logo.png`
 
-### Copying files and directories
+### Copy files and directories
 
 The `cp` command (**C**o**P**y) can be used to copy files or direcories from one path to another.
 
 `$ cp [<options>] /path/to/source [/path/to/more/sources] /path/to/destination`
 
-### Copying a single file
+### Copy a single file
 
 `$ cp /path/to/source /path/to/destination`
 
-### Copying multiple files from one location to a different directory
+### Copy files from one directory to another
 
 `$ cp /path/to/file1 /path/to/file2 /path/to/destination`
 
@@ -81,7 +81,7 @@ The `cp` command (**C**o**P**y) can be used to copy files or direcories from one
 
 `$ cp -r /path/to/source/directory /path/to/destination/directory`
 
-### Copy a file and preserving attributes
+### Copy a file while preserving attributes
 
 By default, when copying a file certain attributes may be modified. For example, if copying using the sudo command the ownership of the copied file will be changed to the root user. The modification and access timestamps are also changed when copying a file.
 
@@ -107,7 +107,7 @@ Copies index.html from `/var/www/old-site/` to `/var/www/new-site/`, preserving 
 
 The `mv` and `cp` commands will overwrite any file that already exists at the destination path. This is known as "clobbering". To avoid this, use the `-n` option. Alternatively, you can use the `-i` option to decide how to handle each file conflict individually. If in doubt, use `-i`.
 
-### Deleting files and directories
+### Delete files and directories
 
 The `rm` command (**R**e**M**ove) can be used to delete files.
 

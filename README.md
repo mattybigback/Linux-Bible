@@ -31,7 +31,7 @@ PS	Windows Powershell
 * Delete a directory and all of its contents
 * Force delete file(s)
 
-### [Access Control](.Chapters/access-control.md) - Permissions and Ownership
+### [Access Control](./Chapters/access-control.md) - Permissions and Ownership
 * File and directory permissions
     * Permission Types
     * File Ownership
